@@ -7,6 +7,7 @@ LOG = get_log_object(__name__)
 
 
 class TestView(BaseView):
+    API_TITLE = "测试接口"
     KWARGS = {
         "name": ("string", "必填", "128", "name", "名称", "name"),
         "age": ("int", "必填", "3", 18, "年龄(0-200)", 18),

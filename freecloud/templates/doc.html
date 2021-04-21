@@ -16,44 +16,51 @@
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="label-primary " role="textbox">
+                {{ title }}
+            </div>
+            <div class="label-primary " role="textbox">
+                api: {{ path }}
+            </div>
+            <div class="label-primary" role="textbox">
+                {{ method }}
+            </div>
 
 
-<div class="alert alert-primary" role="alert">
-    API: {{ path }}
+            <ul class="">
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col"> 参数名</th>
+                        <th scope="col"> 类型</th>
+                        <th scope="col"> 是否必填</th>
+                        <th scope="col"> 长度</th>
+                        <th scope="col"> 默认值</th>
+                        <th scope="col"> 说明</th>
+                        <th scope="col"> 示例</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in params %}
+                        <tr>
+
+                            {% for k,v in row.items %}
+                                <td>{{ v }}</td>
+                            {% endfor %}
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+
+            </ul>
+        </div>
+    </div>
 </div>
 
-<div class="alert alert-primary" role="alert">
-    {{ method }}
-</div>
-
-
-<ul class="">
-    <table class="table">
-        <thead class="thead-dark">
-        <tr>
-            <th scope="col"> 参数名</th>
-            <th scope="col"> 类型</th>
-            <th scope="col"> 是否必填</th>
-            <th scope="col"> 长度</th>
-            <th scope="col"> 默认值</th>
-            <th scope="col"> 说明</th>
-            <th scope="col"> 示例</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for row in params %}
-            <tr>
-
-                {% for k,v in row.items %}
-                    <td>{{ v }}</td>
-                {% endfor %}
-
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-
-</ul>
 </body>
 </html>

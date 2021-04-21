@@ -105,6 +105,7 @@ class _MetaDeco(type):
 
 
 class BaseView(View, metaclass=_MetaDeco):
+    API_TITLE = ""
     KWARGS = {
         # 参数名  默认值  示例  类型  是否必填 长度 说明
         # "name": ("name", "kfc", str, "required", 128, "名称"),
@@ -131,7 +132,7 @@ class BaseView(View, metaclass=_MetaDeco):
 
     def get_doc(self, request):
         l1, l2, l3, l4, l5, l6 = self.get_var_length()
-        doc = dict(path=request.path, method=self.METHOD.upper())
+        doc = dict(path=request.path, method=self.METHOD.upper(), title=self.API_TITLE)
         params = []
         for k, v in self.KWARGS.items():
             print(v)
