@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- 可选的Bootstrap主题文件（一般不使用） -->
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<div class="alert alert-primary" role="alert">
+    API: {{ path }}
+</div>
+
+<div class="alert alert-primary" role="alert">
+    {{ method }}
+</div>
+
+
+<ul class="">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col"> 参数名</th>
+            <th scope="col"> 类型</th>
+            <th scope="col"> 是否必填</th>
+            <th scope="col"> 长度</th>
+            <th scope="col"> 默认值</th>
+            <th scope="col"> 说明</th>
+            <th scope="col"> 示例</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in params %}
+            <tr>
+
+                {% for k,v in row.items %}
+                    <td>{{ v }}</td>
+                {% endfor %}
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+</ul>
+</body>
+</html>
